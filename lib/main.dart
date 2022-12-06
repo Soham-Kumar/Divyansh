@@ -58,78 +58,73 @@ class _MyAppState extends State<MyApp> {
             backgroundColor: Colors.blueAccent[400],
           ),
 
-          body: Column(
-            children: [
-              Divider(),
-              GridView.builder(
-                itemCount: 5,
-                gridDelegate:
-                const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-                itemBuilder: (context, index) {
-                  return Card(
-                    color: Colors.blueAccent,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.0),
+          body: GridView.builder(
+            itemCount: 5,
+            gridDelegate:
+            const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+            itemBuilder: (context, index) {
+              return Card(
+                color: Colors.blueAccent,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30.0),
+                ),
+                child: Column(
+                  children: [
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                              return const SecondPage(title: 'SecondPage');
+                            }
+                            )
+                        );
+                      },
+                      child: Container(
+                          padding: const EdgeInsets.fromLTRB(
+                              30.0, 20.0, 30.0, 0.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Padding(
+                                padding: EdgeInsets.fromLTRB(
+                                    0.0, 8.0, 8.0, 8.0),
+                                child: Text(
+                                  'Text',
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                      color: Colors.brown, fontSize: 20),
+                                ),
+                              ),
+                              const Padding(
+                                padding: EdgeInsets.fromLTRB(
+                                    0.0, 5.0, 8.0, 8.0),
+                                child: Text(
+                                  'Answer',
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                      color: Colors.brown, fontSize: 20),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.fromLTRB(
+                                    0.0, 5.0, 8.0, 8.0),
+                                child: IconButton(
+                                  icon: const Icon(
+                                      Icons.delete, color: Colors.brown,
+                                      size: 40.0),
+                                  tooltip: 'Delete',
+                                  onPressed: () {},
+                                ),
+                              ),
+                            ],
+                          )
+                      ),
                     ),
-                    child: Column(
-                      children: [
-                        TextButton(
-                          onPressed: () {
-                            Navigator.push(context,
-                                MaterialPageRoute(builder: (context) {
-                                  return const SecondPage(title: 'SecondPage');
-                                }
-                                )
-                            );
-                          },
-                          child: Container(
-                              padding: const EdgeInsets.fromLTRB(
-                                  30.0, 20.0, 30.0, 0.0),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  const Padding(
-                                    padding: EdgeInsets.fromLTRB(
-                                        0.0, 8.0, 8.0, 8.0),
-                                    child: Text(
-                                      'Text',
-                                      textAlign: TextAlign.left,
-                                      style: TextStyle(
-                                          color: Colors.brown, fontSize: 20),
-                                    ),
-                                  ),
-                                  const Padding(
-                                    padding: EdgeInsets.fromLTRB(
-                                        0.0, 5.0, 8.0, 8.0),
-                                    child: Text(
-                                      'Answer',
-                                      textAlign: TextAlign.left,
-                                      style: TextStyle(
-                                          color: Colors.brown, fontSize: 20),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.fromLTRB(
-                                        0.0, 5.0, 8.0, 8.0),
-                                    child: IconButton(
-                                      icon: const Icon(
-                                          Icons.delete, color: Colors.brown,
-                                          size: 40.0),
-                                      tooltip: 'Delete',
-                                      onPressed: () {},
-                                    ),
-                                  ),
-                                ],
-                              )
-                          ),
-                        ),
 
-                      ],
-                    ),
-                  );
-                },
-              ),
-            ],
+                  ],
+                ),
+              );
+            },
           ),
           bottomNavigationBar: BottomNavigationBar(
             items: const <BottomNavigationBarItem>[
